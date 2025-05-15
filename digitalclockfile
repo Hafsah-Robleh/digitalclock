@@ -6,15 +6,20 @@ from PyQt5.QtCore import QTimer, QTime, Qt
 
 class DigitalClock(QWidget)
     def _init_(self):
-        super()._init_()
+        super().__init__()
+        self.time__label = QLabel(self)
+        self.timer = QTimer(self)
         self.initUI()
     
     def initUI(self):
-        pass
+        self.setWindowTitle("Hafsah's Digital Clock")
+        self.setGeometry(600, 400 , 300, 100)
+    
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     clock = DigitalClock()
     clock.show()
-    sys.exit()
-    
+    sys.exit(app.exec_()) # Starts the event loop and exits cleanly 
+
+
